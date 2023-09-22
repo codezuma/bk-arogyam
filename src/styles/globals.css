@@ -1,27 +1,128 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+ 
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Inter:wght@300;400;500;600;700&display=swap');
+@font-face {
+  font-family: "Cooper BT W03 Md It";
+  src: url("https://db.onlinewebfonts.com/t/6143d87b4d5ddb99f55745259397f4ca.eot");
+  src: url("https://db.onlinewebfonts.com/t/6143d87b4d5ddb99f55745259397f4ca.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/6143d87b4d5ddb99f55745259397f4ca.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/6143d87b4d5ddb99f55745259397f4ca.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/6143d87b4d5ddb99f55745259397f4ca.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/6143d87b4d5ddb99f55745259397f4ca.svg#Cooper BT W03 Md It")format("svg");
 }
 
-@media (prefers-color-scheme: dark) {
+.secodnary-font{
+  font-family: "Cooper BT W03 Md It";;
+}
+html{
+  font-family: 'DM Sans', sans-serif;
+}
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 174 59% 18%;
+    --primary-foreground: 0 0% 5%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: .5rem;
+  }
+ 
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
+
+
+*{
+  @apply scroll-smooth;
+};
+@layer components {
+  .container-main {
+      @apply xl:px-20 w-full md:px-12 px-6 max-w-[1520px];
+  }
+  .table-content{
+      @apply cursor-pointer prose-a:hover:no-underline prose-a:no-underline  prose-headings:text-gray-800  prose-headings:font-medium !font-medium prose-h6:text-base prose-h6:mb-0 prose-h6:mt-0    prose-h5:text-base prose-h5:mt-0 prose-h5:mb-0 prose-h4:text-base prose-h4:mt-0 prose-h4:mb-0 prose-h3:text-base prose-h3:mt-0 prose-h3:mb-0 prose-h2:text-base prose-h2:mt-0 prose-h2:mb-0 prose-h1:text-lg prose-h1:mb-0;
+  }
+  .table-content > a{
+      @apply hover:underline;
+  }
+  button:disabled {
+      @apply opacity-80 cursor-not-allowed;
+  }
+  .button {
+      @apply inline-flex items-center justify-center rounded-md text-sm px-3 py-2  font-medium ;
+  }
+  .button-primary{
+      @apply button bg-primary text-primary-foreground text-white tracking-wider hover:bg-primary/90;
+  }
+  .button-secondary{
+      @apply button bg-white text-primary-foreground  tracking-wider hover:bg-gray-100;
+  }
+  .button-outline{
+      @apply button bg-white border border-gray-200 text-primary-foreground   tracking-wider hover:bg-gray-100;
+  }
+  .button-tertiary{
+      @apply button text-primary-foreground  tracking-wider hover:bg-gray-100;
+  }
+  .button-large{
+      @apply md:px-6 px-4 md:py-3 py-2 text-lg;
+  }
+  .button-md{
+      @apply text-[17px] px-4 py-2 ;
+  }
+  input{
+      @apply bg-gray-50 focus:border-primary focus:border-2 outline-none   border-2 border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+  }
+  textarea{
+      @apply block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+  }
+  input[type='radio']{
+      @apply w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600;    }
+   select{
+      @apply bg-gray-50 border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+   }
+  
+  }
