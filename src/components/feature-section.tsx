@@ -1,22 +1,20 @@
 import React from "react";
 import FeatureCard from "@components/shared/feature-card"; // Import the FeatureCard component
+import { Pill, PlusCircle, User } from "lucide-react";
 
 const services = [
-  {
-    imageUrl: "https://images.pexels.com/photos/7579823/pexels-photo-7579823.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  { icon:<User/>,
     title: "Consultations/OPD",
     description: "Expert consultations and outpatient services for your health needs.",
     link: "#"
   },
-  {
-    imageUrl: "https://images.pexels.com/photos/3998013/pexels-photo-3998013.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  { icon:<PlusCircle/>,
     title: "Ayurvedic Treatment/Admission",
     description: "Explore our Ayurvedic treatments and admission services for holistic healing.",
     link: "#"
   },
-  {
-    imageUrl: "https://images.pexels.com/photos/7615574/pexels-photo-7615574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    title: "Ayurvedic Medicine",
+  { icon:<Pill/>,
+  title: "Ayurvedic Medicine",
     description: "Discover our range of Ayurvedic medicines to support your well-being.",
     link: "#"
   },
@@ -40,7 +38,7 @@ const FeatureSection = () => {
             At BK Arogyam, we are committed to providing you with the best holistic health solutions. Our services are designed to enhance your well-being and promote a healthier lifestyle.
           </p>
         </div>
-        <div className="mt-20 flex md:gap-20 gap-8 max-w-7xl mx-auto  flex-wrap justify-between">
+        <div className="mt-20 flex flex-col gap-8 max-w-7xl mx-auto  flex-wrap justify-between">
           {/* Generate FeatureCard components for each service */}
           {services.map((service, index) => (
             <FeatureCard key={index} {...service} />

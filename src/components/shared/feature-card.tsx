@@ -1,42 +1,24 @@
 import React from "react";
 
-// Define the prop types using TypeScript interfaces
 interface FeatureCardProps {
-  imageUrl: string;
   title: string;
   description: string;
-  link: string;
+  icon:JSX.Element;
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({
-  imageUrl,
-  title,
-  description,
-  link,
-}) => {
+const FeatureCard: React.FC<FeatureCardProps> = ({ title, description,icon }) => {
   return (
-    <div className="max-w-sm flex-1 bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700">
-      <a href={link}>
-        <img
-          className="rounded-t-lg h-48 w-full object-cover"
-          src={imageUrl}
-          alt=""
-        />
-      </a>
-      <div className="p-5">
-        <a href={link}>
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            {title}
-          </h5>
-        </a>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          {description}
+    <div className="flex-1 md:min-w-[350px]">
+      <dt>
+        <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary/80 text-white">
+          {/* Heroicon name: outline/lightning-bolt */}
+         {icon}
+        </div>
+        <p className="mt-5 text-lg leading-6 font-medium text-gray-900">
+          {title}
         </p>
-        <a
-          href={link} className="button-primary"        >
-          Read more
-        </a>
-      </div>
+      </dt>
+      <dd className="mt-2 text-base text-gray-500">{description}</dd>
     </div>
   );
 };
