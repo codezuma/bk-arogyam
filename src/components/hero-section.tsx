@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ContactDialog from "./shared/contact-dialog";
 
 const HeroSection = () => {
   return <div className="relative container-main">
@@ -11,8 +12,10 @@ const HeroSection = () => {
         — Backed by modern research, and certified by the Ministry of Ayush, Government of India..
       </p>
       <div className="mt-12 mb-16 flex md:flex-row flex-col  gap-4">
-        <button className="button-outline button-large">Show Reel</button>
-        <button className="button-primary button-large">Get in touch</button>
+        <button className="button-outline text-gray-800 button-large">Learn More</button>
+        <ContactDialog>
+        <button className="button-primary  button-large">Get in touch</button>
+        </ContactDialog>
       </div>
       <div className='w-full rounded-md bg-[url("/assets/images/hero-image.png")] h-60 md:h-96 xl:h-[516px] bg-no-repeat bg-bottom bg-cover'></div>
     </section>

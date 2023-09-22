@@ -7,6 +7,7 @@ import ApproachSection from "@components/approach-section";
 import CtaSection from "@components/cta-section";
 import Footer from "@components/footer";
 import ReviewSection from "@components/review-section";
+import StatsSection from "@components/stats-section";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,6 +17,7 @@ export default function Home() {
   <HeroSection/>
   <FeatureSection/>
   <ApproachSection/>
+  <StatsSection/>
   <ReviewSection/>
   <CtaSection/>
   <Footer/>

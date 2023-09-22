@@ -8,48 +8,26 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@components/ui/dialog"
-import { Input } from "@components/ui/input"
-import { Label } from "@components/ui/label"
+import ContactForm from "./contact-form"
+import { PropsWithChildren } from "react"
 
-export function DialogDemo() {
+const  ContactDialog = (props:PropsWithChildren)=> {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
+        {props.children}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className=" md:max-w-[600px] sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Contact Form</DialogTitle>
           <DialogDescription>
             Fill the form and get contact 
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input
-              id="name"
-              defaultValue="Pedro Duarte"
-              className="col-span-3"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input
-              id="username"
-              defaultValue="@peduarte"
-              className="col-span-3"
-            />
-          </div>
-        </div>
-        <DialogFooter>
-          <Button type="submit">Save changes</Button>
-        </DialogFooter>
+        <ContactForm/>
       </DialogContent>
     </Dialog>
   )
 }
+
+export default ContactDialog;
