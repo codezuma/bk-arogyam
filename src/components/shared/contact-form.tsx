@@ -1,5 +1,6 @@
 "use client";
 
+import {sendContactForm} from '../../lib/api'
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
@@ -17,18 +18,22 @@ import { Input } from "@components/ui/input";
 import { useForm } from "react-hook-form";
 import { Textarea } from "@components/ui/textarea";
 import ContactDialog from "./contact-dialog";
+import { useRouter } from 'next/router';
 
 const formSchema = z.object({
   name: z.string().min(2, {
     message: "Name must be at least 2 characters.",
   }),
-
+  phoneNumber: z.string().min(2, {
+    message: "Name must be at least 10 characters.",
+  }),
   message: z.string().min(2, {
     message: "Message must be at least 2 characters.",
   }),
 });
 
 export function ContactForm() {
+  const router = useRouter();
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -36,10 +41,10 @@ export function ContactForm() {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const response = await sendContactForm(values);
+    if(response.success)
+    router.push('/thank-you');
   }
 
   return (
@@ -60,7 +65,7 @@ export function ContactForm() {
         />
         <FormField
           control={form.control}
-          name="name"
+          name="phoneNumber"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Phone Number</FormLabel>
@@ -88,11 +93,9 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <ContactDialog>
           <Button type="submit" className="w-full">
             Submit
           </Button>
-        </ContactDialog>
       </form>
     </Form>
   );

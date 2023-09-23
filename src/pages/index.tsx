@@ -8,11 +8,22 @@ import CtaSection from "@components/cta-section";
 import Footer from "@components/footer";
 import ReviewSection from "@components/review-section";
 import StatsSection from "@components/stats-section";
+import Head from "next/head";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return <>
+  <Script id="google-analytics" strategy="afterInteractive" >
+ {` window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-11345315403');`}
+</Script> 
+  <Head>
+   </Head>
   <Navbar />
   <HeroSection/>
   <FeatureSection/>
