@@ -57,7 +57,7 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>Full Name</FormLabel>
               <FormControl>
-                <Input placeholder="Rakesh" {...field} />
+                <Input placeholder="" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -70,7 +70,7 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>Phone Number</FormLabel>
               <FormControl>
-                <Input placeholder="+91 9785565784" {...field} />
+                <Input placeholder="+91 " {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

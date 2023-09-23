@@ -14,13 +14,17 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+
+  <Script async src="https://www.googletagmanager.com/gtag/js?id=G-NWJFVJSN2P"/>
+
   return <>
   <Script id="google-analytics" strategy="afterInteractive" >
- {` window.dataLayer = window.dataLayer || [];
+ {`  window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'AW-11345315403');`}
+  gtag('config', 'G-NWJFVJSN2P');
+`}
 </Script> 
   <Head>
    </Head>

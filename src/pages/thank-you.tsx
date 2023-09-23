@@ -4,6 +4,7 @@ import Script from "next/script";
 const ThankyouPage = () => {
   return (
     <> 
+         <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-11345315403"/>
      <Script id="google-analytics" strategy="afterInteractive" >
  {`gtag('event', 'conversion', {'send_to': 'AW-11345315403/A13hCLz_0uQYEMuM76Eq'});`}
 </Script> 
