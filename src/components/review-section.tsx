@@ -1,39 +1,36 @@
+import React from 'react';
+
+// An array of video URLs
+const videoURLs = [
+  'https://www.youtube.com/embed/lgU6AgIe-mM?si=l6GamIs632Ta2l-s',
+  'https://www.youtube.com/embed/cMZ65GrMfho?si=l23YrhiBd9rhPlZU',
+  'https://www.youtube.com/embed/1t__fjK8Tvc?si=ERvrrKuaUZAQ59TW',
+];
+
 const ReviewSection = () => {
   return (
-    <section className="py-12 bg-gray-50 overflow-hidden md:py-20 lg:py-24">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-   
-        <div className="relative">
-    
-          <blockquote className="mt-10">
-            <div className="max-w-3xl mx-auto text-center text-2xl leading-9 font-medium text-gray-900">
-              <p>&ldquo;This is the best Ayurvedic direct selling company with brilliant earning plans.&rdquo;</p>
-            </div>
-            <footer className="mt-8">
-              <div className="md:flex md:items-center md:justify-center">
-                <div className="md:flex-shrink-0">
-                  <img
-                    className="mx-auto h-10 w-10 rounded-full"
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt="Judith Black"
-                  />
-                </div>
-                <div className="mt-3 text-center md:mt-0 md:ml-4 md:flex md:items-center">
-                  <div className="text-base font-medium text-gray-900">Shivam Gupta</div>
-
-                  <svg
-                    className="hidden md:block mx-1 h-5 w-5 text-indigo-600"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M11 0h3L9 20H6l5-20z" />
-                  </svg>
-
-                  <div className="text-base font-medium text-gray-500">Patient</div>
-                </div>
+    <section className="bg-gray-100 xl:py-36 md:py-24 py-16">
+      <div className="container mx-auto  px-4">
+      <div className="max-w-4xl mx-auto mb-12 md:text-center">
+          <h2 className="text-3xl font-semibold text-gray-900 sm:text-4xl">{`Our Patients' Stories`}</h2>
+          <p className="mt-3 text-xl text-gray-500 sm:mt-4">{'Explore the real-life experiences of individuals who have undergone Ayurvedic kidney treatment at BK Arogyam. Read their testimonials to see how our approach has positively impacted their kidney health and overall well-being.'}</p>
+        </div>
+        {/* Dynamic Testimonial Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-4">
+          {videoURLs.map((videoURL, index) => (
+            <div key={index} className="bg-white overflow-hidden rounded-lg shadow-md">
+              {/* Video */}
+              <div className="relative aspect-video ">
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src={videoURL}
+                  title={`Testimonial Video ${index + 1}`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
               </div>
-            </footer>
-          </blockquote>
+            </div>
+          ))}
         </div>
       </div>
     </section>

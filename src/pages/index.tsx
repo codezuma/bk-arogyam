@@ -10,6 +10,9 @@ import ReviewSection from "@components/review-section";
 import StatsSection from "@components/stats-section";
 import Head from "next/head";
 import Script from "next/script";
+import ContactDialog from "@components/shared/contact-dialog";
+import { Button } from "@components/ui/button";
+import ImagesSection from "@components/images";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,11 +34,13 @@ export default function Home() {
 </Script> 
   <Head>
    </Head>
+   <div className="fixed bottom-10 right-5 z-[100]"><ContactDialog><Button>Contact Now</Button></ContactDialog></div>
   <Navbar />
   <HeroSection/>
   <FeatureSection/>
   <ApproachSection/>
   <StatsSection/>
+  <ImagesSection/>
   <ReviewSection/>
   <CtaSection/>
   <Footer/>

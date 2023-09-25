@@ -1,6 +1,6 @@
 "use client";
 
-import {sendContactForm} from '../../lib/api'
+import { sendContactForm } from "../../lib/api";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
@@ -18,7 +18,8 @@ import { Input } from "@components/ui/input";
 import { useForm } from "react-hook-form";
 import { Textarea } from "@components/ui/textarea";
 import ContactDialog from "./contact-dialog";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
+import { RadioGroup, RadioGroupItem } from "@components/ui/radio-group";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -27,6 +28,7 @@ const formSchema = z.object({
   phoneNumber: z.string().min(2, {
     message: "Name must be at least 10 characters.",
   }),
+  dialysus: z.string(),
   message: z.string().min(2, {
     message: "Message must be at least 2 characters.",
   }),
@@ -43,8 +45,7 @@ export function ContactForm() {
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const response = await sendContactForm(values);
-    if(response.success)
-    router.push('/thank-you');
+    if (response.success) router.push("/thank-you");
   }
 
   return (
@@ -78,6 +79,36 @@ export function ContactForm() {
         />
         <FormField
           control={form.control}
+          name="dialysus"
+          render={({ field }) => (
+            <FormItem className="space-y-3">
+              <FormLabel>Dialysis</FormLabel>
+              <FormControl>
+                <RadioGroup
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                  className="flex  space-y-1"
+                >
+                  <FormItem className="flex items-center space-x-2 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="yes" />
+                    </FormControl>
+                    <FormLabel className="font-normal">Yes </FormLabel>
+                  </FormItem>
+                  <FormItem className="flex items-center space-x-2 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="no" />
+                    </FormControl>
+                    <FormLabel className="font-normal">No </FormLabel>
+                  </FormItem>
+                </RadioGroup>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
           name="message"
           render={({ field }) => (
             <FormItem>
@@ -93,9 +124,9 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-          <Button type="submit" className="w-full">
-            Submit
-          </Button>
+        <Button type="submit" className="w-full">
+          Submit
+        </Button>
       </form>
     </Form>
   );

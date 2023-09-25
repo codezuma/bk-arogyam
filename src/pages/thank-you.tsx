@@ -1,16 +1,29 @@
+import { create } from "domain";
 import Link from "next/link";
 import Script from "next/script";
+import { useEffect } from "react";
 
 const ThankyouPage = () => {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const openNewTab = () => {
+        setTimeout(() => {
+          window.open('https://youtube.com/@bkarogyam?si=aUjZla01Rt0fD-nM', '_blank');
+        }, 8000); 
+      };
+
+      openNewTab();
+    }
+  }, []);
   return (
-    <> 
+    <>
       <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=AW-11345315403"
-        />
-     <Script id="google-analytics" strategy="afterInteractive" >
- {`  gtag('event', 'conversion', {'send_to': 'AW-11345315403/A13hCLz_0uQYEMuM76Eq'});`}
-</Script> 
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=AW-11345315403"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`  gtag('event', 'conversion', {'send_to': 'AW-11345315403/A13hCLz_0uQYEMuM76Eq'});`}
+      </Script>
       <div className="bg-gray-100 md:mt-60 mt-20 w-full ">
         <div className="bg-white p-6 w-full md:mx-auto">
           <svg
@@ -24,7 +37,7 @@ const ThankyouPage = () => {
           </svg>
           <div className="text-center">
             <h3 className="md:text-2xl text-base text-gray-900 font-semibold text-center">
-             Thank you for  Submitting Form!
+              Thank you for Submitting Form!
             </h3>
             <p className="text-gray-600 my-2">
               We will get back to you shortly.

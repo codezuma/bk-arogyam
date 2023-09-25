@@ -24,10 +24,10 @@ import { Pill, PlusCircleIcon, User } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <main className="mt-12 min-h-screen relative bg-[url('/assets/images/hero-image.webp')] sm:pb-20 pb-5 bg-cover ">
+    <main className=" min-h-screen relative bg-[url('/assets/images/hero-image.webp')] sm:pb-20 pb-5 bg-cover ">
      <div className="w-full h-full z-0 bg-black absolute bg-opacity-30"/>
-      <div className="mx-auto relative min-h-[90vh]  z-10 max-w-7xl pt-20">
-        <div className="lg:grid lg:grid-cols-12  mt-10 lg:gap-8">
+      <div className="mx-auto relative min-h-[90vh]  z-10 max-w-7xl xl:pt-20 md:pt-12 pt-8">
+        <div className="lg:grid lg:grid-cols-12   lg:gap-8">
           <div className="px-4 sm:px-6 sm:text-center items-center md:mx-auto lg:col-span-8 lg:text-left lg:flex lg:items-center">
             <div>
               <h1 className="w-full text-white md:text-4xl  text-4xl mb-6 font-semibold !leading-tight">

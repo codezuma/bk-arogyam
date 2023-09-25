@@ -27,7 +27,6 @@ const FeatureSection = () => {
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl lg:text-center">
-          {/* Title and introductory text */}
           <h2 className="text-base font-semibold leading-7 text-primary">
             BK Arogyam Services
           </h2>
@@ -38,7 +37,7 @@ const FeatureSection = () => {
             At BK Arogyam, we are committed to providing you with the best holistic health solutions. Our services are designed to enhance your well-being and promote a healthier lifestyle.
           </p>
         </div>
-        <div className="mt-20 flex flex-col gap-8 max-w-7xl mx-auto  flex-wrap justify-between">
+        <div className="mt-20 flex  gap-8 max-w-7xl mx-auto  flex-wrap justify-between">
           {/* Generate FeatureCard components for each service */}
           {services.map((service, index) => (
             <FeatureCard key={index} {...service} />
