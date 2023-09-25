@@ -15,7 +15,6 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
 
-  <Script async src="https://www.googletagmanager.com/gtag/js?id=G-NWJFVJSN2P"/>
 
   return <>
   <Script id="google-analytics" strategy="afterInteractive" >
@@ -23,7 +22,7 @@ export default function Home() {
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-NWJFVJSN2P');
+  gtag('config', 'AW-11345315403');
 `}
 </Script> 
   <Head>
