@@ -16,7 +16,7 @@ const ImagesSection = () => {
         type: "loop",
         focus: "center",
         autoplay: true,
-        gap:'60px',
+        gap:60,
         autoWidth: true,
         arrows: true,
       }}
