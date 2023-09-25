@@ -65,7 +65,7 @@ const ApproachSection = () => {
               width={500}
               height={600}
               className="md:absolute md:w-1/2 h-[90%]  object-cover rounded-sm  right-0"
-              src='/assets/images/bk-arogyam.jpg'
+              src="/assets/images/bk-arogyam.jpg"
               alt="feature-image-condign-monk"
             />
           </div>

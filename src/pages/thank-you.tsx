@@ -1,15 +1,17 @@
 import { create } from "domain";
 import Link from "next/link";
 import Script from "next/script";
-import { useEffect } from "react";
+import { createElement, useEffect } from "react";
 
 const ThankyouPage = () => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const openNewTab = () => {
         setTimeout(() => {
+          const anchor = document.createElement('a');
+
           window.open('https://youtube.com/@bkarogyam?si=aUjZla01Rt0fD-nM', '_blank');
-        }, 8000); 
+        }, 0); 
       };
 
       openNewTab();
