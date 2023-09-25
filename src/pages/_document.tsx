@@ -4,9 +4,7 @@ import Script from "next/script";
 export default function Document() {
   return (
     <Html lang="en">
-      <Head>
-        <script></script>
-      
+      <Head>      
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-NWJFVJSN2P"
